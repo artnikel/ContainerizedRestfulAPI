@@ -1,0 +1,27 @@
+### Adding new car
+curl http://localhost:9090/cars \
+—include \
+—header "Content-Type: application/json" \
+—request "POST" \
+—data '{"id": "4","brand": "Honda","name": "Accord","age": 2007,"price": 7000}'
+
+### Adding another car
+curl http://localhost:9090/cars \
+—include \
+—header "Content-Type: application/json" \
+—request "POST" \
+—data '{"id": "5", "brand": "Ford", "name": "Mustang", "age": 2012, "price": 34000}'
+
+### See all cars
+curl http://localhost:9090/cars \
+—header "Content-Type: application/json" \
+—request "GET"
+
+### See car by ID (1)
+curl http://localhost:9090/cars/1
+
+### Deleting car by ID (5)
+curl -X DELETE http://localhost:9090/cars/5
+
+### Updating car by ID (1)
+curl -X PUT -H "Content-Type: application/json" -d '{"id": "1","brand": "Volkswagen", "name": "Polo", "age": 2007, "price": 12000}' http://localhost:9090/cars/1
